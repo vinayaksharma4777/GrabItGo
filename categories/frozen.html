@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frozen Products - GrabItGo</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #121212; /* Dark background */
+      color: #eaeaea; /* Light text */
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: #1e1e1e;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      color: #00d26a; /* Green accent */
+      font-size: 24px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00d26a;
+    }
+
+    /* Main */
+    main {
+      padding: 40px 60px;
+    }
+
+    main h2 {
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #00d26a;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #eaeaea;
+    }
+
+    /* Button */
+    .product-card button {
+      padding: 10px 16px;
+      background: #00d26a;
+      color: #121212;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .product-card button:hover {
+      background: #00a85a;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e1e1e;
+      margin-top: 40px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.6);
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GrabItGo</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fruits.html">Fruits</a>
+      <a href="bakery.html">Bakery</a>
+      <a href="beverages.html">Beverages</a>
+      <a href="dairy.html">Dairy</a>
+      <a href="frozen.html">Frozen</a>
+      <!-- <a href="groceries.html">Groceries</a>
+      <a href="furniture.html">Furniture</a>
+      <a href="sports.html">Sports</a> -->
+    </nav>
+  </header>
+
+  <main>
+    <h2>Frozen Products</h2>
+    <div class="product-grid">
+      <!-- Existing Frozen Items -->
+      <div class="product-card">
+        <img src="images/frozen-veg.jpg" alt="Frozen Vegetables">
+        <h3>Frozen Vegetables (500g)</h3>
+        <p>₹120</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/frozen-fruits.jpg" alt="Frozen Fruits">
+        <h3>Frozen Mixed Fruits (500g)</h3>
+        <p>₹200</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/frozen-chicken.jpg" alt="Frozen Chicken">
+        <h3>Frozen Chicken (1kg)</h3>
+        <p>₹350</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <!-- McCain Products -->
+      <div class="product-card">
+        <img src="images/mccain-fries.jpg" alt="McCain French Fries">
+        <h3>McCain French Fries (1kg)</h3>
+        <p>₹200</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/mccain-aloo-tikki.jpg" alt="McCain Aloo Tikki">
+        <h3>McCain Aloo Tikki (8 pcs)</h3>
+        <p>₹180</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/mccain-nuggets.jpg" alt="McCain Veg Nuggets">
+        <h3>McCain Veg Nuggets (200g)</h3>
+        <p>₹150</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/mccain-pizza.jpg" alt="McCain Pizza">
+        <h3>McCain Pizza (400g)</h3>
+        <p>₹250</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <!-- More Frozen Items -->
+      <div class="product-card">
+        <img src="images/frozen-ice-cream.jpg" alt="Ice Cream">
+        <h3>Ice Cream (500ml)</h3>
+        <p>₹150</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/frozen-paratha.jpg" alt="Frozen Paratha">
+        <h3>Frozen Paratha (5 pcs)</h3>
+        <p>₹120</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/frozen-fish.jpg" alt="Frozen Fish">
+        <h3>Frozen Fish (5 pcs)</h3>
+        <p>₹320</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 GrabItGo. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
