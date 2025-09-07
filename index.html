@@ -7,16 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>GrabItGo</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Sign Up</a>
-      <a href="contact.html">Contact Us</a>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">GrabItGo</div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button>Search</button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </nav>
   </header>
-
   <main>
     <section class="hero">
       <h2>Welcome to GrabItGo</h2>
@@ -26,20 +35,278 @@
     <section class="categories">
       <h2>Shop by Category</h2>
       <div class="category-grid">
-        <a href="categories/electronics.html" class="card">Electronics</a>
         <a href="categories/fruits.html" class="card">Fruits</a>
         <a href="categories/vegetable.html" class="card">Vegetables</a>
-        <a href="categories/dairy.html" class="card">Dairy</a>
         <a href="categories/bakery.html" class="card">Bakery</a>
-        <a href="categories/frozen.html" class="card">Frozen</a>
+        <a href="categories/dairy.html" class="card">Dairy</a>
         <a href="categories/snacks.html" class="card">Snacks</a>
-        <a href="categories/household.html" class="card">Household</a>
+        <a href="categories/frozen.html" class="card">Frozen</a>
         <a href="categories/beverages.html" class="card">Beverages</a>
-        <a href="categories/personalcare.html" class="card">personal-Care</a>
+        <a href="categories/household.html" class="card">Household</a>
+        <a href="categories/electronics.html" class="card">Electronics</a>
+        <a href="categories/personalcare.html" class="card">Personal Care</a>
+      </div>
+    </section>
+
+    <section class="products">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="images/ac.jpeg" alt="Air Conditioner">
+          <h3>Air Conditioner</h3>
+          <p>₹35,000</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/apple.jpeg" alt="Apple">
+          <h3>Apple (1kg)</h3>
+          <p>₹120</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/banana.jpeg" alt="Banana">
+          <h3>Banana (1 Dozen)</h3>
+          <p>₹60</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/biscuits.jpeg" alt="Biscuits">
+          <h3>Biscuits</h3>
+          <p>₹90</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/body-wash.jpeg" alt="Body Wash">
+          <h3>Body Wash</h3>
+          <p>₹250</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/bread.jpeg" alt="Bread">
+          <h3>Bread</h3>
+          <p>₹40</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/cake.jpg" alt="Cake">
+          <h3>Cake</h3>
+          <p>₹300</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/cheese.jpeg" alt="Cheese">
+          <h3>Cheese</h3>
+          <p>₹200</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/chips.jpeg" alt="Potato Chips">
+          <h3>Potato Chips</h3>
+          <p>₹50</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/chocolate.jpeg" alt="Chocolate Bar">
+          <h3>Chocolate Bar</h3>
+          <p>₹30</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+  <img src="images/coffee.jpg" alt="Coffee">
+  <h3>Coffee</h3>
+  <p>₹200</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/conditioner.jpeg" alt="Conditioner">
+  <h3>Conditioner</h3>
+  <p>₹300</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/cookies.jpeg" alt="Cookies">
+  <h3>Cookies</h3>
+  <p>₹150</p>
+  <button>Add to Cart</button>
+</div>
+  <div class="product-card">
+  <img src="images/cream.jpeg" alt="Cream">
+  <h3>Cream</h3>
+  <p>₹250</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/crroisaant.jpeg" alt="Croissant">
+  <h3>Croissant</h3>
+  <p>₹80</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/cupcake.jpg" alt="Cupcake">
+  <h3>Cupcake</h3>
+  <p>₹60</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/curd.jpeg" alt="Curd">
+  <h3>Curd</h3>
+  <p>₹50</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/deodrant.jpeg" alt="Deodorant">
+  <h3>Deodorant</h3>
+  <p>₹180</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/detergent.jpeg" alt="Detergent">
+  <h3>Detergent</h3>
+  <p>₹120</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/dish-wash.jpeg" alt="Dish Wash">
+  <h3>Dish Wash</h3>
+  <p>₹90</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/donut.jpg" alt="Donut">
+  <h3>Donut</h3>
+  <p>₹70</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/face-wash.jpeg" alt="Face Wash">
+  <h3>Face Wash</h3>
+  <p>₹220</p>
+  <button>Add to Cart</button>
+</div>
+<div class="product-card">
+  <img src="images/mccain-aloo-tikki.jpeg" alt="McCain Aloo Tikki">
+  <h3>McCain Aloo Tikki</h3>
+  <p>₹120</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/mccain-fries.jpeg" alt="McCain Fries">
+  <h3>McCain Fries</h3>
+  <p>₹110</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/mccain-nuggets.jpeg" alt="McCain Nuggets">
+  <h3>McCain Nuggets</h3>
+  <p>₹150</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/milk.jpeg" alt="Milk">
+  <h3>Milk</h3>
+  <p>₹50</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/milk-powder.jpeg" alt="Milk Powder">
+  <h3>Milk Powder</h3>
+  <p>₹250</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/milkshake.jpeg" alt="Milkshake">
+  <h3>Milkshake</h3>
+  <p>₹80</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/mop.jpeg" alt="Mop">
+  <h3>Mop</h3>
+  <p>₹300</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/muffin.jpeg" alt="Muffin">
+  <h3>Muffin</h3>
+  <p>₹60</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/namkeen.jpeg" alt="Namkeen">
+  <h3>Namkeen</h3>
+  <p>₹100</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/orange.jpeg" alt="Orange">
+  <h3>Orange (1kg)</h3>
+  <p>₹120</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/oven.jpeg" alt="Oven">
+  <h3>Oven</h3>
+  <p>₹5,000</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/papaya.jpeg" alt="Papaya">
+  <h3>Papaya</h3>
+  <p>₹90</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/pastry.jpeg" alt="Pastry">
+  <h3>Pastry</h3>
+  <p>₹70</p>
+  <button>Add to Cart</button>
+</div>
+
+<div class="product-card">
+  <img src="images/phone.jpeg" alt="Phone">
+  <h3>Phone</h3>
+  <p>₹15,000</p>
+  <button>Add to Cart</button>
+</div>
+
+
+
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 GrabItGo. All Rights Reserved.</p>
   </footer>
