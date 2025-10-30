@@ -9,12 +9,26 @@
 <body>
   <div class="form-container">
     <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
       <button type="submit">Login</button>
     </form>
     <p>Don’t have an account? <a href="signup.html">Sign Up</a></p>
   </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault(); 
+      const password = document.getElementById("password").value;
+      const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+      if (!strongPassword.test(password)) {
+        alert("Password must be at least 8 characters long and include:\n- One uppercase letter\n- One lowercase letter\n- One number\n- One special character");
+      } else {
+        alert("Login successful!");
+      }
+    });
+  </script>
 </body>
 </html>
