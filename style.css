@@ -1,4 +1,4 @@
-/* General */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,7 +6,6 @@ body {
   color: #f0f0f0;
 }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -15,14 +14,13 @@ body {
   padding: 12px 20px;
 }
 
-/* Logo */
 .logo {
   font-size: 22px;
   font-weight: bold;
   color: #00bcd4;
 }
 
-/* Search Bar */
+
 .search-bar {
   flex: 1;
   display: flex;
@@ -110,7 +108,7 @@ body {
   color: #000;
 }
 
-/* Product Grid */
+
 .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -168,7 +166,6 @@ body {
     .product-card button:hover {
       background: #5aafbc;
     }
-/* Forms */
 .form-container {
   max-width: 350px;
   margin: 80px auto;
@@ -197,7 +194,7 @@ body {
   color: #fff;
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding: 15px;
@@ -205,7 +202,7 @@ footer {
   margin-top: 20px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
