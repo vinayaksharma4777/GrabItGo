@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrabitGo Wishlist</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding: 30px;
+    }
+
+    .wishlist-container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #1e1e1e;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ff4081;
+    }
+
+    .wishlist-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding: 20px 0;
+    }
+
+    .wishlist-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+
+    .item-details { flex: 1; }
+    .item-details h2 { font-size: 20px; color: #ffffff; }
+    .price { color: #b0bec5; margin: 8px 0; }
+
+    .actions { margin-top: 10px; }
+
+    .actions button {
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      margin-right: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .actions button.remove { background-color: #f44336; }
+
+    .actions button:hover { opacity: 0.85; }
+
+    .clear-btn {
+      display: block;
+      margin: 30px auto 0;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .clear-btn:hover { background-color: #d32f2f; }
+
+    @media (max-width: 600px) {
+      .wishlist-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .actions { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wishlist-container">
+    <h1>💖 Your Wishlist</h1>
+    <div id="wishlist-items"></div>
+    <button class="clear-btn" onclick="clearWishlist()">Clear Wishlist</button>
+  </div>
+
+  <script>
+   
+    const wishlistContainer = document.getElementById('wishlist-items');
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+   
+    function updateWishlistDisplay() {
+      wishlistContainer.innerHTML = '';
+
+      if (wishlist.length === 0) {
+        wishlistContainer.innerHTML = '<p>Your wishlist is empty ❤️</p>';
+        return;
+      }
+
+      wishlist.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'wishlist-item';
+        div.innerHTML = `
+          <img src="${item.image || 'https://via.placeholder.com/100'}" alt="${item.name}" />
+          <div class="item-details">
+            <h2>${item.name}</h2>
+            <p class="price">₹${item.price}</p>
+            <div class="actions">
+              <button onclick="addToCart(${index})">Add to Cart</button>
+              <button class="remove" onclick="removeFromWishlist(${index})">Remove</button>
+            </div>
+          </div>
+        `;
+        wishlistContainer.appendChild(div);
+      });
+    }
+
+   
+    function addToCart(index) {
+      const item = wishlist[index];
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existing = cart.find(c => c.name === item.name);
+      if (existing) existing.quantity += 1;
+      else cart.push({ name: item.name, price: item.price, quantity: 1, image: item.image });
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${item.name} added to cart!`);
+    }
+
+    function removeFromWishlist(index) {
+      const removed = wishlist.splice(index, 1)[0];
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      updateWishlistDisplay();
+      alert(`${removed.name} removed from wishlist.`);
+    }
+
+  
+    function clearWishlist() {
+      if (confirm('Are you sure you want to clear your wishlist?')) {
+        wishlist = [];
+        localStorage.removeItem('wishlist');
+        updateWishlistDisplay();
+      }
+    }
+
+    updateWishlistDisplay();
+  </script>
+</body>
+</html>
