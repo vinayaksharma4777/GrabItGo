@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty - GrabItGo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+    body { background: #121212; color: #eaeaea; line-height: 1.6; }
+    header { background: #1e1e1e; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.6); }
+    header h1 { color: #00bcd4; font-size: 24px; }
+    nav a { margin: 0 12px; text-decoration: none; color: #ccc; font-weight: 500; transition: color 0.3s ease; }
+    nav a:hover { color: #92d6df; }
+    main { padding: 40px 60px; }
+    main h2 { font-size: 28px; margin-bottom: 25px; color: #fff; text-align: center; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+    .product-card { background: #1e1e1e; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.6); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.8); }
+    .product-card img { width: 100%; max-height: 160px; object-fit: contain; margin-bottom: 15px; }
+    .product-card h3 { font-size: 18px; margin-bottom: 8px; color: #00bcd4; }
+    .product-card p { font-size: 16px; font-weight: bold; margin-bottom: 12px; color: #eaeaea; }
+    .product-card button { padding: 10px 16px; background: #00bcd4; color: #121212; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background 0.3s ease; }
+    .product-card button:hover { background: #92d6df; }
+    footer { text-align: center; padding: 20px; background: #1e1e1e; margin-top: 40px; box-shadow: 0 -2px 5px rgba(0,0,0,0.6); font-size: 14px; color: #888; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GrabItGo</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="Groceries.html">Groceries</a>
+      <a href="furniture.html">Furniture</a>
+      <a href="home-decoration.html">Home-Decoration</a>
+      <a href="men.html">Men</a>
+      <a href="women.html">Women</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="fragrances.html">Fragrances</a>
+      <a href="tops.html">Tops</a>
+      <a href="electronics.html">Electronics</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Beauty Products</h2>
+    <div class="product-grid" id="productContainer"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 GrabItGo. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const categoryName = "beauty";
+    fetch(`https://dummyjson.com/products/category/${categoryName}`)
+      .then(res => res.json())
+      .then(data => displayProducts(data.products))
+      .catch(err => console.error("Error:", err));
+
+    function displayProducts(products) {
+      const container = document.getElementById("productContainer");
+      container.innerHTML = "";
+      products.forEach(product => {
+        const card = document.createElement("div");
+        card.classList.add("product-card");
+        card.innerHTML = `
+          <img src="${product.thumbnail}" alt="${product.title}">
+          <h3>${product.title}</h3>
+          <p>₹${product.price}</p>
+          <button class="add-cart">Add to Cart</button>
+          <button class="wishlist-btn" title="Add to Wishlist">
+            <span class="heart">&#10084;</span>
+          </button>
+        `;
+        container.appendChild(card);
+      });
+      setupButtons();
+    }
+
+    function setupButtons() {
+      const cartButtons = document.querySelectorAll('.add-cart');
+      cartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const name = card.querySelector('h3').textContent;
+          const price = parseFloat(card.querySelector('p').textContent.replace('₹',''));
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const existing = cart.find(item => item.name === name);
+          if (existing) existing.quantity += 1;
+          else cart.push({name, price, quantity: 1});
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert(`${name} added to cart!`);
+        });
+      });
+
+      const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+      wishlistButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const name = card.querySelector('h3').textContent;
+          const price = parseFloat(card.querySelector('p').textContent.replace('₹',''));
+          let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+          const index = wishlist.findIndex(item => item.name === name);
+          const heart = button.querySelector('.heart');
+          if (index === -1) {
+            wishlist.push({name, price});
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            heart.style.color = 'red';
+            alert(`${name} added to wishlist!`);
+          } else {
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            heart.style.color = 'black';
+            alert(`${name} removed from wishlist.`);
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
